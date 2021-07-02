@@ -1,4 +1,8 @@
 <h1>{{title}}</h1>
+<nav>
+    <a routerLink="/dashboard">Home</a>
+    <a routerLink="/civics">Civics</a>
+</nav>
+<!-- The following is available because we imported AppRoutingModule in the AppModule. -->
 <router-outlet></router-outlet>
-<app-heroes></app-heroes>
 <app-messages></app-messages>

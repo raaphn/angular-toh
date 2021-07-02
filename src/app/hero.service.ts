@@ -43,7 +43,7 @@ export class HeroService {
   //Adds a new hero. Almost the same as the above, but uses post() instead of put()
   addHero(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap((newHero: Hero) => this.log(`Added Civic w/ id=${newHero.id}`)),
+      tap((newHero: Hero) => this.log(`Added Civic w/ id=${newHero.id}. Using WebDB Api: Changes made to the WebDB will not be kept after refreshing the page.`)),
       catchError(this.handleError<Hero>('addHero'))
     );
   }
@@ -66,8 +66,8 @@ export class HeroService {
     }
     return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
       tap(x => x.length ?
-        this.log(`found heroes matching "${term}"`) :
-        this.log(`no heroes matching "${term}"`)),
+        this.log(`Found Civics matching "${term}"`) :
+        this.log(`No Civics matching "${term}"`)),
       catchError(this.handleError<Hero[]>('searchHeroes', []))
     );
   }

@@ -40,7 +40,7 @@ export class HeroService {
     );
   }
 
-  //Adds a new hero. Almost the same as the above, but instead of put() uses post()
+  //Adds a new hero. Almost the same as the above, but uses post() instead of put()
   addHero(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
       tap((newHero: Hero) => this.log(`Added Civic w/ id=${newHero.id}`)),

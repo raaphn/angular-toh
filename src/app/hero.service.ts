@@ -53,7 +53,7 @@ export class HeroService {
     const url = `${this.heroesUrl}/${id}`;
 
     return this.http.delete<Hero>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`Deleted Civic id=${id}`)),
+      tap(_ => this.log(`Deleted Civic id=${id}. Using WebDB Api: Changes made to the WebDB will not be kept after refreshing the page.`)),
       catchError(this.handleError<Hero>('deleteHero'))
     );
   }
